@@ -188,7 +188,7 @@ class DetectionFilter:
         for class_id in to_remove:
             del self.history[class_id]
 
-def detect_obstacles(depth, center_x, center_y):
+def detect_obstacles(zed, depth, center_x, center_y, width):
     """
     Ekranın üst kısmında yatay bir çizgi boyunca engelleri tespit eder.
     Su yüzeyini tespit etmek için ani derinlik değişimlerini kontrol eder.
@@ -332,7 +332,7 @@ def main():
                     magnetic_heading = magnetometer_data.magnetic_heading
 
                     # Engelleri tespit et
-                    obstacles = detect_obstacles(depth, center_x, center_y)
+                    obstacles = detect_obstacles(zed, depth, center_x, center_y, width)
                     
                     # Tespit edilen engelleri detected_objects'e ekle
                     for obstacle_pos in obstacles:
