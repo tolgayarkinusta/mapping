@@ -1,7 +1,6 @@
 import pyzed.sl as sl
 import cv2
 import numpy as np
-import math
 import time
 from ultralytics import YOLO
 import os
